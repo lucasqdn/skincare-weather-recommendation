@@ -7,6 +7,7 @@ import RecommendationCard from "../components/RecommendationCard";
 import ProductRecommendations from "../components/ProductRecommendations";
 import { getWeather, getConditionCategory } from "../services/weatherService";
 import { recommendSkincare, recommendProducts } from "../recommendations";
+import WeatherBackground from "../components/WeatherBackground";
 
 export default function WeatherPage() {
   const [params] = useSearchParams();
@@ -55,25 +56,37 @@ export default function WeatherPage() {
     };
   }, [lat, lon]);
 
-  const themeClass = weather ? `app theme-${getConditionCategory(weather.current.weatherCode)}` : "app";
+  const category = weather ? getConditionCategory(weather.current.weatherCode) : null;
+  const themeClass = weather ? `app theme-${category}` : "app";
+
+  // Apply full-page background theme by toggling body class
+  useEffect(() => {
+    if (!weather) return;
+    const className = `bg-${category}`;
+    document.body.classList.add(className);
+    return () => {
+      document.body.classList.remove(className);
+    };
+  }, [weather?.current?.weatherCode, category]);
 
   return (
     <div className={themeClass}>
+      {category && <WeatherBackground category={category} />}
       {loading && <div className="status">Loading weather…</div>}
       {error && <div className="error">{error}</div>}
       {!loading && !error && (
-        <div className="layout">
-          <div>
+        <div className="weather-columns">
+          <div className="col-left">
             <WeatherCard placeLabel={placeLabel} weather={weather} />
             <div style={{ marginTop: 16 }}>
               <HourlyStrip weather={weather} />
             </div>
-          </div>
-          <div>
-            <StatGrid weather={weather} />
             <div style={{ marginTop: 16 }}>
-              <RecommendationCard data={recs} />
+              <StatGrid weather={weather} />
             </div>
+          </div>
+          <div className="col-right">
+            <RecommendationCard data={recs} />
             <div style={{ marginTop: 16 }}>
               <ProductRecommendations products={products} />
             </div>
