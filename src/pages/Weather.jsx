@@ -4,8 +4,9 @@ import WeatherCard from "../components/WeatherCard";
 import HourlyStrip from "../components/HourlyStrip";
 import StatGrid from "../components/StatGrid";
 import RecommendationCard from "../components/RecommendationCard";
+import ProductRecommendations from "../components/ProductRecommendations";
 import { getWeather, getConditionCategory } from "../services/weatherService";
-import { recommendSkincare } from "../ml/skinModel";
+import { recommendSkincare, recommendProducts } from "../ml/skinModel";
 
 export default function WeatherPage() {
   const [params] = useSearchParams();
@@ -18,6 +19,7 @@ export default function WeatherPage() {
 
   const [weather, setWeather] = useState(null);
   const [recs, setRecs] = useState(null);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -31,16 +33,16 @@ export default function WeatherPage() {
         const w = await getWeather(lat, lon);
         if (!active) return;
         setWeather(w);
-        setRecs(
-          recommendSkincare({
-            temperature: w.current.temperature,
-            humidity: w.current.humidity,
-            uvIndex: w.current.uvIndex ?? w.daily?.uvIndexMax,
-            windSpeed: w.current.windSpeed,
-            precipitation: w.current.precipitation,
-            condition: w.current.condition,
-          })
-        );
+        const current = {
+          temperature: w.current.temperature,
+          humidity: w.current.humidity,
+          uvIndex: w.current.uvIndex ?? w.daily?.uvIndexMax,
+          windSpeed: w.current.windSpeed,
+          precipitation: w.current.precipitation,
+          condition: w.current.condition,
+        };
+        setRecs(recommendSkincare(current));
+        setProducts(recommendProducts(current));
       } catch (e) {
         if (active) setError("Failed to load weather");
       } finally {
@@ -71,6 +73,9 @@ export default function WeatherPage() {
             <StatGrid weather={weather} />
             <div style={{ marginTop: 16 }}>
               <RecommendationCard data={recs} />
+            </div>
+            <div style={{ marginTop: 16 }}>
+              <ProductRecommendations products={products} />
             </div>
           </div>
         </div>
