@@ -27,34 +27,27 @@ export function recommendSkincare(current) {
   const cond = current.condition ?? "";
 
   if (uv >= 3 && uv < 6) warnings.push("Moderate UV: Wear SPF 30+, reapply every 2 hours.");
-  else if (uv >= 6 && uv < 8) warnings.push("High UV: SPF 50+, hat/sunglasses, seek shade midday.");
+  else if (uv >= 6 && uv < 8) warnings.push("High UV: SPF 50+, wear hat/sunglasses.");
   else if (uv >= 8) warnings.push("Very High UV: Limit sun, SPF 50+, reapply often.");
   else suggestions.push({ title: "Daily sunscreen", details: "Even at low UV, use a broad-spectrum SPF 30 as a habit." });
 
   if (temp <= 5) {
-    warnings.push("Cold/dry risk: Barrier can be compromised.");
-    suggestions.push({ title: "Rich moisturizer + occlusive", details: "Use ceramides, petrolatum or shea butter to lock moisture." });
+    warnings.push("Cold/dry risk: Skin barrier can be compromised.");
+    suggestions.push({ title: "Rich moisturizer", details:"Creams with ceramides, panthenol, or niacinamide helps protect the skin barrier and retain moisture." });
   } else if (temp >= 28) {
-    suggestions.push({ title: "Lightweight gel moisturizer", details: "Opt for non-comedogenic gels to avoid heaviness in heat." });
+    suggestions.push({ title: "Lightweight gel moisturizer", details: "Use lightweight, non-comedenic gels, especially in hot weather." });
   }
 
   if (humid < 30) {
-    warnings.push("Low humidity: Transepidermal water loss increases.");
-    suggestions.push({ title: "Humectants", details: "Look for hyaluronic acid/glycerin; top with an emollient." });
+    warnings.push("Low humidity: Skin loses water more quickly.");
+    suggestions.push({ title: "Humectants", details: "Look for hyaluronic acid/glycerin." });
   } else if (humid > 70) {
-    suggestions.push({ title: "Mattifying SPF", details: "Use oil-controlling or mineral SPF to reduce shine." });
-  }
-
-  if (wind >= 25) {
-    warnings.push("Wind exposure: Can cause irritation and dryness.");
-    suggestions.push({ title: "Barrier balm", details: "Apply a thin layer to cheeks/nose before going out." });
+    suggestions.push({ title: "Mattifying SPF", details: "Use oil-controlling sunscreens to reduce shine." });
   }
 
   if (precip > 0 || /rain|shower|drizzle/i.test(cond)) {
     suggestions.push({ title: "Water-resistant SPF", details: "Choose water-resistant sunscreen if spending time outside." });
   }
-
-  suggestions.push({ title: "Gentle cleanser", details: "Avoid over-cleansing; maintain skin barrier." });
 
   return { warnings, suggestions };
 }

@@ -16,7 +16,6 @@ export default function RecommendationCard({ data }) {
 			)}
 			{!!suggestions.length && (
 				<div className="suggestions">
-					<h3>What to use</h3>
 					<ul>
 						{suggestions.map((s, i) => (
 							<li key={i} className="suggestion-item">
