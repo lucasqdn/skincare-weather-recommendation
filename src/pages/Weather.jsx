@@ -62,18 +62,18 @@ export default function WeatherPage() {
       {loading && <div className="status">Loading weather…</div>}
       {error && <div className="error">{error}</div>}
       {!loading && !error && (
-        <div className="layout">
-          <div>
+        <div className="weather-columns">
+          <div className="col-left">
             <WeatherCard placeLabel={placeLabel} weather={weather} />
             <div style={{ marginTop: 16 }}>
               <HourlyStrip weather={weather} />
             </div>
-          </div>
-          <div>
-            <StatGrid weather={weather} />
             <div style={{ marginTop: 16 }}>
-              <RecommendationCard data={recs} />
+              <StatGrid weather={weather} />
             </div>
+          </div>
+          <div className="col-right">
+            <RecommendationCard data={recs} />
             <div style={{ marginTop: 16 }}>
               <ProductRecommendations products={products} />
             </div>
