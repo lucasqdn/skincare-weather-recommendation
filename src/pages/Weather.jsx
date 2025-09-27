@@ -7,6 +7,7 @@ import RecommendationCard from "../components/RecommendationCard";
 import ProductRecommendations from "../components/ProductRecommendations";
 import { getWeather, getConditionCategory } from "../services/weatherService";
 import { recommendSkincare, recommendProducts } from "../recommendations";
+import WeatherBackground from "../components/WeatherBackground";
 
 export default function WeatherPage() {
   const [params] = useSearchParams();
@@ -55,21 +56,22 @@ export default function WeatherPage() {
     };
   }, [lat, lon]);
 
-  const themeClass = weather ? `app theme-${getConditionCategory(weather.current.weatherCode)}` : "app";
+  const category = weather ? getConditionCategory(weather.current.weatherCode) : null;
+  const themeClass = weather ? `app theme-${category}` : "app";
 
   // Apply full-page background theme by toggling body class
   useEffect(() => {
     if (!weather) return;
-    const cat = getConditionCategory(weather.current.weatherCode);
-    const className = `bg-${cat}`;
+    const className = `bg-${category}`;
     document.body.classList.add(className);
     return () => {
       document.body.classList.remove(className);
     };
-  }, [weather?.current?.weatherCode]);
+  }, [weather?.current?.weatherCode, category]);
 
   return (
     <div className={themeClass}>
+      {category && <WeatherBackground category={category} />}
       {loading && <div className="status">Loading weather…</div>}
       {error && <div className="error">{error}</div>}
       {!loading && !error && (
