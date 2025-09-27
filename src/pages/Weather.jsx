@@ -7,6 +7,7 @@ import RecommendationCard from "../components/RecommendationCard";
 import ProductRecommendations from "../components/ProductRecommendations";
 import { getWeather, getConditionCategory } from "../services/weatherService";
 import { recommendSkincare, recommendProducts } from "../recommendations";
+import { getSkinProfile } from "../services/storageService";
 import WeatherBackground from "../components/WeatherBackground";
 
 export default function WeatherPage() {
@@ -43,7 +44,8 @@ export default function WeatherPage() {
           condition: w.current.condition,
         };
         setRecs(recommendSkincare(current));
-        setProducts(recommendProducts(current));
+        const profile = getSkinProfile();
+        setProducts(recommendProducts(current, profile));
       } catch (e) {
         if (active) setError("Failed to load weather");
       } finally {
