@@ -12,6 +12,7 @@ export default function ProductRecommendations({ products }) {
             <div className="product-info">
               <div className="product-brand">{p.brand}</div>
               <div className="product-name">{p.name}</div>
+              <div className="product-tag">{p.tag}</div>
               <div className="product-cta">View</div>
             </div>
           </a>
