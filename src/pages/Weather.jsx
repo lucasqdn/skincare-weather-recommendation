@@ -57,6 +57,17 @@ export default function WeatherPage() {
 
   const themeClass = weather ? `app theme-${getConditionCategory(weather.current.weatherCode)}` : "app";
 
+  // Apply full-page background theme by toggling body class
+  useEffect(() => {
+    if (!weather) return;
+    const cat = getConditionCategory(weather.current.weatherCode);
+    const className = `bg-${cat}`;
+    document.body.classList.add(className);
+    return () => {
+      document.body.classList.remove(className);
+    };
+  }, [weather?.current?.weatherCode]);
+
   return (
     <div className={themeClass}>
       {loading && <div className="status">Loading weather…</div>}
