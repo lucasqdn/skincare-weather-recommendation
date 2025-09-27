@@ -169,5 +169,6 @@ export function recommendProducts(current) {
 	return recommendations;
 }
 
+// Backward compatibility: forward to new module
 export default { recommendSkincare, recommendProducts };
 

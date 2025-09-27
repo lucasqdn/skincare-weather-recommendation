@@ -6,7 +6,7 @@ import StatGrid from "../components/StatGrid";
 import RecommendationCard from "../components/RecommendationCard";
 import ProductRecommendations from "../components/ProductRecommendations";
 import { getWeather, getConditionCategory } from "../services/weatherService";
-import { recommendSkincare, recommendProducts } from "../ml/skinModel";
+import { recommendSkincare, recommendProducts } from "../recommendations";
 
 export default function WeatherPage() {
   const [params] = useSearchParams();
