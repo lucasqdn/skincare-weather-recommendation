@@ -20,6 +20,13 @@
 				"$eslint-stylish"
 			],
 			"group": "build"
+		},
+		{
+			"label": "vite-build",
+			"type": "shell",
+			"command": "npm run build",
+			"args": [],
+			"group": "build"
 		}
 	]
 }
