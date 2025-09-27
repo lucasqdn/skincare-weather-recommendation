@@ -40,6 +40,55 @@ body {
   margin: 0;
 }
 
+/* Landing page */
+.landing {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landing-inner {
+  max-width: 720px;
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+}
+.landing-title { font-size: 42px; font-weight: 800; margin-bottom: 6px; }
+.landing-sub { color: var(--muted); margin-bottom: 12px; }
+.landing-card {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 10px 0 18px;
+}
+.qs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) { .qs-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.qs-field { text-align: left; }
+.qs-field label { display: block; margin-bottom: 6px; color: var(--muted); font-size: 14px; }
+.qs-field select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text);
+}
+.qs-save {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0b1226;
+  color: var(--text);
+}
+.landing-search { max-width: 600px; margin: 0 auto; }
+
 .searchbar {
   position: relative;
   margin: 20px auto;
