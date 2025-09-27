@@ -27,18 +27,9 @@ body {
   padding: 24px;
 }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.app-header h1 {
-  margin: 0 0 6px;
-  font-weight: 700;
-}
-.subtitle {
-  color: var(--muted);
-  margin: 0;
-}
+.app-header { display: flex; align-items: center; justify-content: center; text-align: center; margin-bottom: 20px; }
+.app-header h1 { margin: 0 0 6px; font-weight: 700; }
+.subtitle { color: var(--muted); margin: 0; }
 
 /* Landing page */
 .landing {
@@ -242,19 +233,12 @@ body {
 .hourly-pop { color: var(--primary); font-size: 12px; margin-top: 2px; }
 
 /* Stat grid */
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-.stat {
-  background: #0b1226;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px;
-}
+.stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.stat { background: #0b1226; border: 1px solid var(--border); border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 10px; }
+.stat-icon { font-size: 20px; }
+.stat-meta { display: grid; gap: 4px; }
 .stat-label { color: var(--muted); font-size: 12px; }
-.stat-value { font-weight: 700; margin-top: 6px; }
+.stat-value { font-weight: 700; }
 
 /* Products */
 .products h2 { margin-top: 0; }
