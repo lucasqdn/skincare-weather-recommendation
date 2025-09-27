@@ -101,7 +101,7 @@ const productDatabase = {
 		{
 			name: "CeraVe Moisturizing Cream",
 			brand: "CeraVe",
-			link: "https://example.com/cerave-moisturizing-cream",
+			link: "",
 			image: "https://example.com/images/cerave-moisturizing-cream.jpg",
 		},
 		{
