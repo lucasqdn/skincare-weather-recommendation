@@ -95,6 +95,15 @@ body.bg-thunder {
   padding: 16px;
   margin: 10px 0 18px;
 }
+.upload-row { display: flex; justify-content: center; margin-bottom: 12px; }
+.analysis-preview { display: grid; grid-template-columns: 160px 1fr; gap: 12px; align-items: start; margin-top: 8px; }
+.analysis-img { width: 160px; height: 160px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); background: #0f172a; }
+.analysis-scores { display: grid; gap: 8px; }
+.score-grid { display: grid; gap: 8px; }
+.score-item { display: grid; grid-template-columns: 100px 1fr; gap: 10px; align-items: center; }
+.score-item span { color: var(--muted); font-size: 14px; }
+meter { width: 100%; height: 10px; }
+.score-tags { color: var(--muted); font-size: 12px; margin-top: 4px; }
 .qs-grid {
   display: grid;
   grid-template-columns: 1fr;

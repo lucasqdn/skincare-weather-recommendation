@@ -1,4 +1,4 @@
-// Product database for conditions
+// Product database for weather and skin conditions
 const productDatabase = {
   dry: [
     {
@@ -48,14 +48,75 @@ const productDatabase = {
       tag: "Sunny Weather",
     },
   ],
+  acne: [
+    {
+      name: "BHA Blackhead Power Liquid",
+      brand: "COSRX",
+      link: "https://www.amazon.com/COSRX-Blackhead-Power-Liquid-3-38/dp/B00OZE0G8G",
+      image: "https://m.media-amazon.com/images/I/51Kf9p8bIUL._SX679_.jpg",
+    },
+    {
+      name: "Adapalene Gel 0.1%",
+      brand: "Differin",
+      link: "https://www.amazon.com/Differin-Adapalene-Treatment-Acne-Prone-Fragrance-Free/dp/B07FF2018M",
+      image: "https://m.media-amazon.com/images/I/51b3+I7bKfL._SX679_.jpg",
+    },
+  ],
+  oily: [
+    {
+      name: "Green Tea Seed Hyaluronic Cream",
+      brand: "Innisfree",
+      link: "https://www.amazon.com/Innisfree-Hyaluronic-Hydrating-Moisturizer-Fragrance/dp/B0B5J9G6QW",
+      image: "https://m.media-amazon.com/images/I/61d1v+U3mXL._SX679_.jpg",
+    },
+    {
+      name: "Oil-Free Ultra-Moisturizing Lotion",
+      brand: "COSRX",
+      link: "https://www.amazon.com/COSRX-Moisturizing-Lotion-Hyaluronic-Amorepacific/dp/B01CLTKI4O",
+      image: "https://m.media-amazon.com/images/I/51Ykgu8k7aL._SX679_.jpg",
+    },
+  ],
+  sensitive: [
+    {
+      name: "SoonJung 2x Barrier Intensive Cream",
+      brand: "ETUDE",
+      link: "https://www.amazon.com/ETUDE-SoonJung-Barrier-Intensive-Hypoallergenic/dp/B07HJ67G5Q",
+      image: "https://m.media-amazon.com/images/I/51g62qkC2HL._SX679_.jpg",
+    },
+    {
+      name: "Tolériane Ultra Soothing Care",
+      brand: "La Roche-Posay",
+      link: "https://www.amazon.com/La-Roche-Posay-Toleriane-Soothing-Intense/dp/B003PHN2CU",
+      image: "https://m.media-amazon.com/images/I/51NHO0gG0ML._SX679_.jpg",
+    },
+  ],
 };
 
-export function recommendProducts(current) {
+function dedupe(products) {
+  const seen = new Set();
+  const res = [];
+  for (const p of products) {
+    const key = `${p.brand}|${p.name}`;
+    if (!seen.has(key)) { seen.add(key); res.push(p); }
+  }
+  return res;
+}
+
+export function recommendProducts(current, skinProfile) {
   const out = [];
+  // Weather-driven
   if (current.humidity < 30) out.push(...productDatabase.dry);
   else if (current.humidity > 70) out.push(...productDatabase.humid);
   if (current.uvIndex && current.uvIndex > 3) out.push(...productDatabase.sunny);
-  return out;
+
+  // Skin-profile driven
+  const tags = skinProfile?.tags || [];
+  if (tags.includes("acne-prone")) out.push(...productDatabase.acne);
+  if (tags.includes("oily")) out.push(...productDatabase.oily);
+  if (tags.includes("sensitive")) out.push(...productDatabase.sensitive);
+  if (tags.includes("dry")) out.push(...productDatabase.dry);
+
+  return dedupe(out);
 }
 
 export default { recommendProducts, productDatabase };
