@@ -52,44 +52,65 @@ const productDatabase = {
     {
       name: "BHA Blackhead Power Liquid",
       brand: "COSRX",
-      link: "https://www.amazon.com/COSRX-Blackhead-Power-Liquid-3-38/dp/B00OZE0G8G",
-      image: "https://m.media-amazon.com/images/I/51Kf9p8bIUL._SX679_.jpg",
+      link: "https://www.stylevana.com/en_CA/deal-cosrx-bha-blackhead-power-liquid-100ml.html?___store=bwsvcab_en&utm_source=google&utm_medium=cpc&utm_campaign=21542856954&utm_term=&device=c&gad_source=1&gad_campaignid=21549356090&gbraid=0AAAAACgtEnDoiVF60QKfcilm5dA-W5Lay&gclid=CjwKCAjwlt7GBhAvEiwAKal0cq5lE3jek7oZM6uxXK7VkRJmBcyUWcPLOZz9iIhiSJK_e1Ayf_S08BoCF68QAvD_BwE",
+      image: "https://sv5-cdn.stylevana.com/media/catalog/product/cache/56c900fad0fd1dcb87b3e5ee2186e9a0/c/o/cosrx-bha-blackhead-power-liquid-100ml-718.jpg",
+      tag: "Acne-prone Skin",
     },
     {
       name: "Adapalene Gel 0.1%",
       brand: "Differin",
-      link: "https://www.amazon.com/Differin-Adapalene-Treatment-Acne-Prone-Fragrance-Free/dp/B07FF2018M",
-      image: "https://m.media-amazon.com/images/I/51b3+I7bKfL._SX679_.jpg",
+      link: "https://ca.iherb.com/pr/differin-adapalene-gel-0-1-acne-treatment-fragrance-free-0-5-oz-15-g/86314?gad_campaignid=818099273&gad_source=1&gclid=CjwKCAjwlt7GBhAvEiwAKal0cqAUA7TNHj9VlnDG5_LinNw0zfJx6vL42ZskuI4MxvR-H6SYz4TgGRoCkPYQAvD_BwE&gclsrc=aw.ds",
+      image: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/dif/dif92030/v/41.jpg",
+      tag: "Acne-prone Skin",
     },
   ],
-  oily: [
+  oily_skin: [
     {
       name: "Green Tea Seed Hyaluronic Cream",
       brand: "Innisfree",
       link: "https://www.amazon.com/Innisfree-Hyaluronic-Hydrating-Moisturizer-Fragrance/dp/B0B5J9G6QW",
       image: "https://m.media-amazon.com/images/I/61d1v+U3mXL._SX679_.jpg",
+      tag: "Oily Skin",
     },
     {
       name: "Oil-Free Ultra-Moisturizing Lotion",
       brand: "COSRX",
-      link: "https://www.amazon.com/COSRX-Moisturizing-Lotion-Hyaluronic-Amorepacific/dp/B01CLTKI4O",
-      image: "https://m.media-amazon.com/images/I/51Ykgu8k7aL._SX679_.jpg",
+      link: "https://www.amazon.ca/innisfree-Hyaluronic-Ceramides-Hydrating-Moisturizer/dp/B0CW7M2VBN/ref=asc_df_B0CW7M2VBN?mcid=190f1b93044d34298bd44ef945cbfafa&tag=googleshopc0c-20&linkCode=df0&hvadid=706725225090&hvpos=&hvnetw=g&hvrand=15805138837946640113&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9001527&hvtargid=pla-2295958495619&hvocijid=15805138837946640113-B0CW7M2VBN-&hvexpln=0&gad_source=1&th=1",
+      image: "https://m.media-amazon.com/images/I/61U2jfHQMKL._SX522_.jpg",
+      tag: "Oily Skin",
     },
   ],
-  sensitive: [
+    dry_skin: [
     {
-      name: "SoonJung 2x Barrier Intensive Cream",
-      brand: "ETUDE",
-      link: "https://www.amazon.com/ETUDE-SoonJung-Barrier-Intensive-Hypoallergenic/dp/B07HJ67G5Q",
-      image: "https://m.media-amazon.com/images/I/51g62qkC2HL._SX679_.jpg",
+      name: "Red Erasing Cream ",
+      brand: "Medicube",
+      link: "https://www.stylevana.com/en_CA/deal-medicube-red-erasing-cream-100ml95038.html?___store=bwsvcab_en&utm_source=google&utm_medium=cpc&utm_campaign=21542856954&utm_term=&device=c&gad_source=1&gad_campaignid=21549356090&gbraid=0AAAAACgtEnDoiVF60QKfcilm5dA-W5Lay&gclid=CjwKCAjwlt7GBhAvEiwAKal0cr0jghV03BKEmxn3rqRKWX2YZiQwZmBszabLvFy-aGEPyp0nNXPfCRoC8eQQAvD_BwE",
+      image: "https://sv5-cdn.stylevana.com/media/catalog/product/cache/56c900fad0fd1dcb87b3e5ee2186e9a0/m/e/medicube-red-erasing-cream-100ml-858.jpg",
+      tag: "Dry Skin",
     },
     {
-      name: "Tolériane Ultra Soothing Care",
-      brand: "La Roche-Posay",
-      link: "https://www.amazon.com/La-Roche-Posay-Toleriane-Soothing-Intense/dp/B003PHN2CU",
-      image: "https://m.media-amazon.com/images/I/51NHO0gG0ML._SX679_.jpg",
+      name: "Intensive Cream",
+      brand: "Zeroid",
+      link: "https://skin-seoul.com/product/zeroid-intensive-cream/?currency=CAD&country=CA&gad_source=1&gad_campaignid=22437923166&gbraid=0AAAAA98BjCK3ryOu7Hu2RXvpxRwUMVuhK&gclid=CjwKCAjwlt7GBhAvEiwAKal0cuThaiZi9tubpjyJ5nbAjJBq36uywRlFQ6XOjWs4EKD9u8mxvnBA4hoC-vgQAvD_BwE",
+      image: "https://prod.skin-seoul.com/wp-content/uploads/2024/05/thu_100006446_1-1.webp",
+      tag: "Dry Skin",
     },
   ],
+    combination_skin: [
+    {
+      name: "Inteca Soothing Cream Set",
+      brand: "make p:rem",
+      link: "https://skin-seoul.com/product/make-prem-inteca-soothing-cream-set-80ml31ml/?attribute_size=80ml%2B31ml&attribute_pack=1set&currency=CAD&country=CA&gad_source=1&gad_campaignid=22437923166&gbraid=0AAAAA98BjCK3ryOu7Hu2RXvpxRwUMVuhK&gclid=CjwKCAjwlt7GBhAvEiwAKal0cj_HJj6D1SKzu141nydVWisPev709yLNv7vDKJbWhqCWk_OBEQjj5RoCtYQQAvD_BwE",
+      image: "https://prod.skin-seoul.com/wp-content/uploads/2024/05/thu_100007069_1-1.webp",
+      tag: "Combination Skin",
+    },
+    {
+      name: "Pine Calming Cica Cream",
+      brand: "round lab",
+      link: "https://www.yesstyle.com/en/tcuc.CAD/coc.CA/info.html/pid.1123980099?googtrans=en&utm_source=GoogleAds&utm_campaign=20992990947&utm_term=&utm_content=162190712281_690082444240&utm_medium=Shopping&bac=FHDLIVHL&mcg=paidsearch&gad_source=1&gad_campaignid=20992990947&gbraid=0AAAAAD3WTkmx0nfBIUX9occmd25RWfbH_&gclid=CjwKCAjwlt7GBhAvEiwAKal0crkE_iXdroM1NGSqfhmjc11tA9z9ytOvezuSQiYqGBoCnhGarvk0VBoCwHIQAvD_BwE",
+      image: "https://d1flfk77wl2xk4.cloudfront.net/Assets/round-lab-pine-calming-cica-cream-50ml/78/948/XXL_p0198194878.jpg",
+      tag: "Combination Skin",},
+  ]
 };
 
 function dedupe(products) {
@@ -112,9 +133,11 @@ export function recommendProducts(current, skinProfile) {
   // Skin-profile driven
   const tags = skinProfile?.tags || [];
   if (tags.includes("acne-prone")) out.push(...productDatabase.acne);
-  if (tags.includes("oily")) out.push(...productDatabase.oily);
-  if (tags.includes("sensitive")) out.push(...productDatabase.sensitive);
-  if (tags.includes("dry")) out.push(...productDatabase.dry);
+  if (tags.includes("oily")) out.push(...productDatabase.oily_skin);
+  if (tags.includes("sensitive")) out.push(...productDatabase.sensitive_skin);
+  if (tags.includes("dry")) out.push(...productDatabase.dry_skin);
+  if (tags.includes("combination")) out.push(...productDatabase.combination_skin);
+
 
   return dedupe(out);
 }
