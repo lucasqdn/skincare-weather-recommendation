@@ -8,8 +8,6 @@ export default function Landing() {
   const nav = useNavigate();
   const [qs, setQs] = useState({
     skinType: "",
-    sensitivity: "",
-    goals: "",
   });
   const [qsSaved, setQsSaved] = useState(false);
   const [file, setFile] = useState(null);
@@ -72,31 +70,6 @@ export default function Landing() {
                 <option value="oily">Oily</option>
                 <option value="combination">Combination</option>
                 <option value="normal">Normal</option>
-              </select>
-            </div>
-            <div className="qs-field">
-              <label>Sensitivity</label>
-              <select
-                value={qs.sensitivity}
-                onChange={(e) => setQs({ ...qs, sensitivity: e.target.value })}
-              >
-                <option value="">Select…</option>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-              </select>
-            </div>
-            <div className="qs-field">
-              <label>Primary goal</label>
-              <select
-                value={qs.goals}
-                onChange={(e) => setQs({ ...qs, goals: e.target.value })}
-              >
-                <option value="">Select…</option>
-                <option value="hydration">Hydration</option>
-                <option value="oil-control">Oil control</option>
-                <option value="brightening">Brightening</option>
-                <option value="anti-aging">Anti-aging</option>
               </select>
             </div>
           </div>
